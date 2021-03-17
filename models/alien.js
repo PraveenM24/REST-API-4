@@ -3,16 +3,17 @@ const mongoose = require('mongoose')
 
 const dbSchema = new mongoose.Schema({
 
-    name:{
+    name: {
         type: String,
         required: true
     },
-    content:{
+    content: {
         type: String,
         required: true
     },
-    created:{
-        type: Date
+    created: {
+        type: String,
+        required: true
     }
 })
 
