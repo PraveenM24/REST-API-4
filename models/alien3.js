@@ -7,7 +7,7 @@ const dbSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    lreceiver: {
+    receiver: {
         type: String,
         required: true
     },
