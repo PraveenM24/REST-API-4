@@ -1,4 +1,5 @@
 const multer = require("multer");
+const Alien = require('../models/alien4')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -6,13 +7,13 @@ const storage = multer.diskStorage({
       },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
-    }
+    },
 });
 
 const uploadImg = multer({storage: storage}).single('image');
 
 const newImg = (req, res) => {
-        const newTea = new Tea({
+        const newTea = new Alien({
           image: req.file.path,
         });
   
