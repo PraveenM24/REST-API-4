@@ -1,18 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Alien = require('../models/alien4')
-const multer = require('multer')
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './uploads');
-      },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname);
-    }
-});
-
-const uploadImg = multer({storage: storage}).single('image');
+const dataController = require('../controllers/alien4')
 
 router.get('/', async(req, res) => {
     try{
@@ -32,7 +21,7 @@ router.get('/:id', async(req, res) => {
     }
 })
 
-router.post('/', uploadImg, async(req, res) => {
+router.post('/', dataController.uploadImg, async(req, res) => {
     const alien = new Alien({
         image: req.file.path,
     })
