@@ -12,18 +12,22 @@ const storage = multer.diskStorage({
 
 const uploadImg = multer({storage: storage}).single('image');
 
-const newImg = (req, res) => {
-        const newTea = new Alien({
-          image: req.file.path,
-        });
+// const newImg = (req, res) => {
+//         const alien = new Alien({
+//           image: req.file.path,
+//         })
+
+//         try {
+//           const a1 =  alien.save()
+//           res.json(a1)
+//         } catch (err) {
+//           res.send('Error')
+//       }
+//   };
+
   
-        newTea.save((err, data) => {
-          if (err) return res.json("Something is wrong. Please check.");
-          return res.json(data);
-        });
-  };
 
 module.exports = {
     uploadImg,
-    newImg,
+    // newImg,
 };
