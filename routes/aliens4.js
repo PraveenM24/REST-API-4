@@ -21,7 +21,19 @@ router.get('/:id', async(req, res) => {
     }
 })
 
-router.post('/', dataController.uploadImg, dataController.newImg)
+router.post('/', async(req, res) => {
+    const alien = new Alien({
+        image: req.body.image,
+    })
+
+    try {
+        const a1 = await alien.save()
+        res.json(a1)
+    } catch (err) {
+        res.send('Error')
+    }
+})
+// router.post('/', dataController.uploadImg, dataController.newImg)
 
 router.delete('/:id', async(req,res) =>{
     try{
