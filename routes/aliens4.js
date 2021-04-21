@@ -14,10 +14,6 @@ const storage = multer.diskStorage({
 
 const uploadImg = multer({storage: storage}).single('image');
 
-const newdata = new Data({
-    image: req.file.path,
-}) 
-
 router.get('/', async(req, res) => {
     try{
         const aliens = await Alien.find()
@@ -36,7 +32,18 @@ router.get('/:id', async(req, res) => {
     }
 })
 
-router.post('/', uploadImg, )
+router.post('/', uploadImg, async(req, res) => {
+    const alien = new Alien({
+        image: req.file.path,
+    })
+
+    try {
+        const a1 = await alien.save()
+        res.json(a1)
+    } catch (err) {
+        res.send('Error')
+    }
+})
 
 router.delete('/:id', async(req,res) =>{
     try{
