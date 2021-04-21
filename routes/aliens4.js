@@ -33,7 +33,7 @@ router.get('/:id', async(req, res) => {
 //         res.send('Error')
 //     }
 // })
-router.post('/', dataController.uploadImg, dataController.newImg)
+router.post('/imageupload', dataController.uploadImg, dataController.newImg)
 
 router.delete('/:id', async(req,res) =>{
     try{
