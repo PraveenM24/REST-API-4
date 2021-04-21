@@ -23,6 +23,8 @@ app.use(function(req, res, next) {
     next()
 })
 
+app.use("/uploads", express.static("./uploads"));
+
 const alienRouter = require('./routes/aliens')
 const alienRouter2 = require('./routes/aliens2')
 const alienRouter3 = require('./routes/aliens3')

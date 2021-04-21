@@ -1,5 +1,5 @@
 const multer = require("multer");
-const Alien = require('../models/alien4')
+// const Alien = require('../models/alien4')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
