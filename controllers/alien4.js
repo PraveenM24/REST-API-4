@@ -14,6 +14,8 @@ const uploadImg = multer({storage: storage}).single('image');
 
 
 const newImg = (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*")
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
     //check if tea already exists in db
     Alien.findOne({ name: req.body.name }, (data) => {
       //if tea not in db, add it
@@ -25,8 +27,6 @@ const newImg = (req, res) => {
   
         // save to database
         newImg.save((err, data) => {
-          res.header("Access-Control-Allow-Origin", "*")
-          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
           if (err) return res.json("Something is wrong. Please check.");
           return res.json(data);
         });
