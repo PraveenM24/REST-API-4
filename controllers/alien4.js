@@ -24,7 +24,7 @@ const newImg = (req, res) => {
         });
   
         // save to database
-        newTea.save((err, data) => {
+        newImg.save((err, data) => {
           if (err) return res.json("Something is wrong. Please check.");
           return res.json(data);
         });
