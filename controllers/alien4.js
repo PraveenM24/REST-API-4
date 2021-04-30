@@ -18,7 +18,7 @@ const newImg = (req, res) => {
     Alien.findOne({ name: req.body.name }, (data) => {
       //if tea not in db, add it
       if (data === null) {
-        const newTea = new Alien({
+        const newImg = new Alien({
           name: req.body.name,
           image: req.body.image
         });
