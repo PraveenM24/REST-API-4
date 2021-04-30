@@ -31,7 +31,7 @@ router.post('/', async(req, res) => {
         const a1 = await alien.save()
         res.json(a1)
     } catch (err) {
-        res.send('Error')
+        res.send('Error', err)
     }
 })
 
