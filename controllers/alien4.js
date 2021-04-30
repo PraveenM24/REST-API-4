@@ -20,7 +20,7 @@ const newImg = (req, res) => {
       if (data === null) {
         const newTea = new Alien({
           name: req.body.name,
-          image: req.file.path
+          image: req.body.image
         });
   
         // save to database
