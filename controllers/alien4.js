@@ -20,11 +20,13 @@ const newImg = (req, res) => {
       if (data === null) {
         const newImg = new Alien({
           name: req.body.name,
-          image: req.file.path
+          image: req.body.image
         });
   
         // save to database
         newImg.save((err, data) => {
+          res.header("Access-Control-Allow-Origin", "*")
+          res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
           if (err) return res.json("Something is wrong. Please check.");
           return res.json(data);
         });
