@@ -29,10 +29,12 @@ const alienRouter = require('./routes/aliens')
 const alienRouter2 = require('./routes/aliens2')
 const alienRouter3 = require('./routes/aliens3')
 const alienRouter4 = require('./routes/aliens4')
+const alienRouter5 = require('./routes/aliens5')
 app.use('/posts', alienRouter)
 app.use('/register', alienRouter2)
 app.use('/messages', alienRouter3)
 app.use('/imageupload', alienRouter4)
+app.use('/test', alienRouter5)
 
 
 app.listen(PORT, () => {
